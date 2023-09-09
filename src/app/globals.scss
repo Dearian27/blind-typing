@@ -1,0 +1,12 @@
+.letter {
+    white-space: pre-wrap;
+    font-size: 20px;
+    color: gainsboro;
+    position: relative;
+    .filled {
+        color: black;
+    }
+    .current {
+        text-decoration: underline;
+    }
+}

@@ -2,6 +2,8 @@ import Image from 'next/image'
 import styles from './page.module.css'
 import Word from '@/components/Word'
 import Letter from '@/components/Letter'
+import { store } from '@/redux/store';
+import { Provider } from 'react-redux';
 
 const text = [
   'ffjj fffj jffj jjff jfjf fjjf'
@@ -13,33 +15,25 @@ export default function Home() {
   let letterCount = -1;
 
   return (
-    <main className={styles.main}>
-     
-     <section style={{display: 'flex', flexWrap: 'wrap'}}>
-      {textArray.map((word, index) => {
-        wordCount++;
-        return <>
-          <Word key={wordCount}>
-            {word.split('').map(letter => {
-              letterCount++;
-              return <Letter value={letter} key={letterCount} />
-            })}
-          </Word>
-          {index !== textArray.length - 1 && 
-            <Letter value={' '} key={++letterCount} />
-          }
-        </>
-      })}
-      </section>
-      
-      
-      <Word>
-        <Letter value="a" />
-        <Letter value="l" />
-        <Letter value="e" />
-        <Letter value="r" />
-        <Letter value="t" />
-      </Word>
-    </main>
+    // <Provider store={store}>
+      <main className={styles.main}>
+      <section style={{display: 'flex', flexWrap: 'wrap'}}>
+        {textArray.map((word, index) => {
+          wordCount++;
+          return <>
+            <Word key={wordCount}>
+              {word.split('').map(letter => {
+                letterCount++;
+                return <Letter value={letter} key={letterCount} />
+              })}
+            </Word>
+            {index !== textArray.length - 1 && 
+              <Letter value={' '} key={++letterCount} />
+            }
+          </>
+        })}
+        </section>
+      </main>
+    // </Provider>
   )
 }
