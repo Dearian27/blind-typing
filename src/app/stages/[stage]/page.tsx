@@ -9,6 +9,7 @@ const text = [
 ]
 
 export default function Stage() {
+  const [letterStates, setLetterStates] = useState(new Array(text.length).fill(false));
   const [currentLetter, setCurrentLetter] = useState<number>(0);
 
 
@@ -18,21 +19,21 @@ export default function Stage() {
   let letterCount = -1;
 
 
-  const handleKeyPress = (event) => {
-    // if(event.keyCode === )
-    console.log('Була натиснута клавіша:', event.key);
-  };
-  useEffect(() => {
+  // const handleKeyPress = (event) => {
+  //   // if(event.keyCode === )
+  //   console.log('Була натиснута клавіша:', event.key);
+  // };
+  // useEffect(() => {
   
-  }, []);
+  // }, []);
 
-  useEffect(() => {
-    document.addEventListener('keydown', handleKeyPress);
+  // useEffect(() => {
+  //   document.addEventListener('keydown', handleKeyPress);
 
-    return () => {
-      document.removeEventListener('keydown', handleKeyPress);
-    };
-  }, []); // Порожній масив означає, що цей ефект запускається тільки при монтуванні та розмонтованні компонента
+  //   return () => {
+  //     document.removeEventListener('keydown', handleKeyPress);
+  //   };
+  // }, []); // Порожній масив означає, що цей ефект запускається тільки при монтуванні та розмонтованні компонента
 
 
   return (
