@@ -4,6 +4,7 @@ import Letter from '@/components/Letter';
 import {useDispatch, useSelector} from 'react-redux';
 import { useEffect, useState } from 'react';
 import './styles.scss';
+import styles from '@/app/page.module.css';
 import { AppDispatch } from '@/redux/store';
 import { backspacePress, initializeText, keyPress } from '@/redux/slices/TextSlice';
 
