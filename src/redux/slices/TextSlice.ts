@@ -1,25 +1,25 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 export type letterParams = {
-	value: string;
-	// current: boolean;
-	status: 'none' | 'correct' | 'wrong';
+value: string;
+// current: boolean;
+status: 'none' | 'correct' | 'wrong';
 }
 
 type textParams = {
-	text: string;
-	lettersStates: letterParams[];
-	currentLetter: number;
-	initialized: boolean;
-	stopped: boolean;
+text: string;
+lettersStates: letterParams[];
+currentLetter: number;
+initialized: boolean;
+stopped: boolean;
 }
 
 const initialState: textParams = {
-	text: '',
-	lettersStates: [],
-	currentLetter: 0,
-	initialized: false,
-	stopped: false,
+text: '',
+lettersStates: [],
+currentLetter: 0,
+initialized: false,
+stopped: false,
 }
 
 const TextSlice = createSlice({
@@ -62,8 +62,9 @@ const TextSlice = createSlice({
 		},
 		backspacePress: (state) => {
 			if(state.stopped) return;
-
+			if(state.currentLetter === 0) return;
 			state.lettersStates[state.currentLetter].status = 'none';
+			state.lettersStates[state.currentLetter-1].status = 'none';
 			state.currentLetter--;
 		}
 		// buttonPress: (state, action: PayloadAction<>) => {

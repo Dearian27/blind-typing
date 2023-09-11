@@ -8,7 +8,8 @@ import { AppDispatch } from '@/redux/store';
 import { backspacePress, initializeText, keyPress } from '@/redux/slices/TextSlice';
 
 const text = [
-  'ffjj fffj jffj jjff jfjf fjjf'
+  // 'ffjj fffj jffj jjff jfjf fjjf',
+  'This is the men\'s world',
 ]
 
 export default function Stage() {
@@ -23,12 +24,15 @@ export default function Stage() {
     if (event.keyCode === 32) {
       event.preventDefault();
     } 
-    if(event.keyCode === 8) {
-      console.log('Backspace');
-      dispatch(backspacePress());
-    } else {
-      dispatch(keyPress(event.key));
-      console.log('Була натиснута клавіша:', event.key);
+    switch(event.keyCode) {
+      case 9:
+      case 16:
+      case 17:
+      case 18:
+      case 20:
+      case 91: event.preventDefault(); break;
+      case 8: dispatch(backspacePress()); break;
+      default: dispatch(keyPress(event.key));break;
     }
   };
   // useEffect(() => {
