@@ -6,8 +6,9 @@
     &.correct {
         color: black !important;
     }
-    &.failed {
-        color: #ff443a !important;
+    &.wrong {
+        background-color: #ff524933 !important;
+        color: #843c39 !important;
     }
     &.current {
         text-decoration: underline;

@@ -11,6 +11,7 @@ type textParams = {
 	lettersStates: letterParams[];
 	currentLetter: number;
 	initialized: boolean;
+	stopped: boolean;
 }
 
 const initialState: textParams = {
@@ -18,6 +19,7 @@ const initialState: textParams = {
 	lettersStates: [],
 	currentLetter: 0,
 	initialized: false,
+	stopped: false,
 }
 
 const TextSlice = createSlice({
@@ -46,17 +48,23 @@ const TextSlice = createSlice({
 			};
 		},
 		keyPress: (state, action: PayloadAction<string>) => {
+			if(state.stopped) return;
+
 			if(action.payload === state.lettersStates[state.currentLetter].value) {
 				state.lettersStates[state.currentLetter].status = 'correct';
 			} else {
 				state.lettersStates[state.currentLetter].status = 'wrong';
 			}
+			if(state.currentLetter === state.text.length-1) {
+				state.stopped = true;
+			} else 
 			state.currentLetter++;
 		},
 		backspacePress: (state) => {
+			if(state.stopped) return;
+
 			state.lettersStates[state.currentLetter].status = 'none';
 			state.currentLetter--;
-
 		}
 		// buttonPress: (state, action: PayloadAction<>) => {
 		// 	state.

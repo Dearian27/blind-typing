@@ -9,9 +9,9 @@ type LetterComponent = {
 }
 
 export default function Letter(props: LetterComponent) {
-  const [letter, setLetter] = useState<letterParams>(null);
+  const [letter, setLetter] = useState<letterParams | null>(null);
   const dispatch = useDispatch<AppDispatch>();
-  const {currentLetter, initialized} = useSelector((state) => state.text);
+  const {currentLetter} = useSelector((state) => state.text);
   const {lettersStates} = useSelector((state) => state.text);
   
   // const letterStates = lettersStates[props.id];
@@ -21,9 +21,9 @@ export default function Letter(props: LetterComponent) {
     setLetter(lettersStates[props.id]);
   }, [lettersStates[props.id]])
 
-  return initialized && letter ?
+  return letter ?
     <code 
-    className={`letter ${currentLetter === props.id ? 'current' : letter.status === 'correct' ? 'correct' : letter.status === 'wrong' && 'wrong'}`} id={String(props.id)}
+    className={`letter ${letter.status === 'correct' ?  'correct' : letter.status === 'wrong' ? 'wrong' : currentLetter === props.id && 'current'}`} id={String(props.id)}
     >
       {props.value}
     </code>
