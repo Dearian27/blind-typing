@@ -1,0 +1,16 @@
+.letter {
+    white-space: pre-wrap;
+    font-size: 20px;
+    color: gainsboro;
+    position: relative;
+    &.correct {
+        color: black !important;
+    }
+    &.wrong {
+        background-color: #ff524933 !important;
+        color: #843c39 !important;
+    }
+    &.current {
+        text-decoration: underline;
+    }
+}

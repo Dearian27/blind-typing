@@ -3,7 +3,7 @@ import Word from '@/components/Word';
 import Letter from '@/components/Letter';
 import {useDispatch, useSelector} from 'react-redux';
 import { useEffect, useState } from 'react';
-import styles from '@/app/page.module.css';
+import styles from './styles.module.scss';
 import { AppDispatch } from '@/redux/store';
 import { backspacePress, initializeText, keyPress } from '@/redux/slices/TextSlice';
 
