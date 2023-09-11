@@ -17,7 +17,7 @@ const initialState: textParams = {
 	text: '',
 	lettersStates: [],
 	currentLetter: 0,
-	initialized: false
+	initialized: false,
 }
 
 const TextSlice = createSlice({
@@ -45,6 +45,19 @@ const TextSlice = createSlice({
 				status: 'none'
 			};
 		},
+		keyPress: (state, action: PayloadAction<string>) => {
+			if(action.payload === state.lettersStates[state.currentLetter].value) {
+				state.lettersStates[state.currentLetter].status = 'correct';
+			} else {
+				state.lettersStates[state.currentLetter].status = 'wrong';
+			}
+			state.currentLetter++;
+		},
+		backspacePress: (state) => {
+			state.lettersStates[state.currentLetter].status = 'none';
+			state.currentLetter--;
+
+		}
 		// buttonPress: (state, action: PayloadAction<>) => {
 		// 	state.
 		// },
@@ -52,5 +65,5 @@ const TextSlice = createSlice({
 })
 
 
-export const {initializeText, initializeLetter} = TextSlice.actions;
+export const {initializeText, initializeLetter, keyPress, backspacePress} = TextSlice.actions;
 export default TextSlice.reducer;

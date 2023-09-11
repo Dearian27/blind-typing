@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import { useEffect, useState } from 'react';
 import styles from '@/app/page.module.css';
 import { AppDispatch } from '@/redux/store';
-import { initializeText } from '@/redux/slices/TextSlice';
+import { backspacePress, initializeText, keyPress } from '@/redux/slices/TextSlice';
 
 const text = [
   'ffjj fffj jffj jjff jfjf fjjf'
@@ -13,7 +13,6 @@ const text = [
 
 export default function Stage() {
   const dispatch = useDispatch<AppDispatch>();
-  // const {}
 
   const textArray = text[0].split(" ");
   let wordCount = -1;
@@ -26,8 +25,9 @@ export default function Stage() {
     } 
     if(event.keyCode === 8) {
       console.log('Backspace');
-      console.log('Була натиснута клавіша:', event.key);
+      dispatch(backspacePress());
     } else {
+      dispatch(keyPress(event.key));
       console.log('Була натиснута клавіша:', event.key);
     }
   };
@@ -59,7 +59,7 @@ export default function Stage() {
               })}
             </Word>
             {index !== textArray.length - 1 &&
-              <Letter value={' '} key={`ls${++letterCount}`} id={++letterCount} />
+              <Letter value={' '} key={`ls${letterCount+1}`} id={++letterCount} />
             }
           </>
         })}

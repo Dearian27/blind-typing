@@ -4,10 +4,10 @@
     color: gainsboro;
     position: relative;
     &.correct {
-        color: black;
+        color: black !important;
     }
     &.failed {
-        color: #ff443a;
+        color: #ff443a !important;
     }
     &.current {
         text-decoration: underline;
