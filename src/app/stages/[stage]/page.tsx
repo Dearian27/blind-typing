@@ -13,28 +13,34 @@ const text = [
 
 export default function Stage() {
   const dispatch = useDispatch<AppDispatch>();
-
+  // const {}
 
   const textArray = text[0].split(" ");
   let wordCount = -1;
   let letterCount = -1;
 
 
-  // const handleKeyPress = (event) => {
-  //   // if(event.keyCode === )
-  //   console.log('Була натиснута клавіша:', event.key);
-  // };
+  const handleKeyPress = (event:KeyboardEvent) => {
+    if (event.keyCode === 32) {
+      event.preventDefault();
+    } 
+    if(event.keyCode === 8) {
+      console.log('Backspace');
+      console.log('Була натиснута клавіша:', event.key);
+    } else {
+      console.log('Була натиснута клавіша:', event.key);
+    }
+  };
   // useEffect(() => {
   
   // }, []);
 
-  // useEffect(() => {
-  //   document.addEventListener('keydown', handleKeyPress);
-
-  //   return () => {
-  //     document.removeEventListener('keydown', handleKeyPress);
-  //   };
-  // }, []); // Порожній масив означає, що цей ефект запускається тільки при монтуванні та розмонтованні компонента
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyPress);
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress);
+    };
+  }, []); // Порожній масив означає, що цей ефект запускається тільки при монтуванні та розмонтованні компонента
 
   useEffect(() => {
     dispatch(initializeText({text: text[0]}));
@@ -46,14 +52,14 @@ export default function Stage() {
         {textArray.map((word, index) => {
           wordCount++;
           return <>
-            <Word key={wordCount}>
+            <Word key={`w${wordCount}`}>
               {word.split('').map(letter => {
                 letterCount++;
-                return <Letter value={letter} key={letterCount} id={letterCount} />
+                return <Letter value={letter} key={`l${letterCount}`} id={letterCount} />
               })}
             </Word>
             {index !== textArray.length - 1 &&
-              <Letter value={' '} key={++letterCount} id={++letterCount} />
+              <Letter value={' '} key={`ls${++letterCount}`} id={++letterCount} />
             }
           </>
         })}

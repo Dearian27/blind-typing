@@ -3,10 +3,13 @@
     font-size: 20px;
     color: gainsboro;
     position: relative;
-    .filled {
+    &.correct {
         color: black;
     }
-    .current {
+    &.failed {
+        color: #ff443a;
+    }
+    &.current {
         text-decoration: underline;
     }
 }
