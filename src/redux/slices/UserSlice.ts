@@ -10,7 +10,7 @@ const initialState: userStateParams = {
     stages: 10,
 }
 
-const userSlice = createSlice({
+const UserSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
@@ -18,5 +18,5 @@ const userSlice = createSlice({
     },
 })
 
-export const {  } = userSlice.actions;
-export default userSlice.reducer;
+export const {  } = UserSlice.actions;
+export default UserSlice.reducer;
