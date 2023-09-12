@@ -15,6 +15,7 @@ export default function Letter(props: LetterComponent) {
   const dispatch = useDispatch<AppDispatch>();
   const {currentLetter} = useSelector((state: RootState) => state.text);
   const {lettersStates} = useSelector((state: RootState) => state.text);
+  const {cursor} = useSelector((state: RootState) => state.settings);
   
   // const letterStates = lettersStates[props.id];
   // console.log("lettersState", letterStates)
@@ -25,9 +26,12 @@ export default function Letter(props: LetterComponent) {
 
   return letter ?
     <code 
-    className={`letter ${letter.status === 'correct' ?  'correct' : letter.status === 'wrong' ? 'wrong' : currentLetter === props.id && 'current'}`} id={String(props.id)}
+    className={`letter ${letter.status === 'correct' ?  'correct' : letter.status === 'wrong' && props.value === " " ? 'bgwrong' : letter.status === 'wrong' && 'wrong'}`} id={String(props.id)}
     >
       {props.value}
+      {currentLetter === props.id && cursor !== 'none' &&
+        <div className={`${cursor === 'default' ? 'cursor1' : 'cursor2'}`} />
+      }
     </code>
     : <></>
 }

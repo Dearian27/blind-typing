@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 import styles from '@/app/page.module.css';
 import { AppDispatch } from '@/redux/store';
 import { backspacePress, initializeText, keyPress } from '@/redux/slices/TextSlice';
+import { setCursor } from '@/redux/slices/SettingsSlice';
 
 const text = [
   // 'ffjj fffj jffj jjff jfjf fjjf',
@@ -45,23 +46,29 @@ export default function Stage() {
   }, []);
 
   return (
-    <main className={styles.main}>
-      <div style={{display: 'flex', flexWrap: 'wrap'}}>
-        {textArray.map((word, index) => {
-          wordCount++;
-          return <>
-            <Word key={`w${wordCount}`}>
-              {word.split('').map(letter => {
-                letterCount++;
-                return <Letter value={letter} key={`l${letterCount}`} id={letterCount} />
-              })}
-            </Word>
-            {index !== textArray.length - 1 &&
-              <Letter value={' '} key={`ls${letterCount+1}`} id={++letterCount} />
-            }
-          </>
-        })}
-      </div>
-    </main>
+    <>
+      <button onClick={() => dispatch(setCursor('none'))}>None</button>
+      <button onClick={() => dispatch(setCursor('default'))}>Default</button>
+      <button onClick={() => dispatch(setCursor('terminal'))}>Terminal</button>
+      
+      <main className={styles.main}>
+        <div style={{display: 'flex', flexWrap: 'wrap'}}>
+          {textArray.map((word, index) => {
+            wordCount++;
+            return <>
+              <Word key={`w${wordCount}`}>
+                {word.split('').map(letter => {
+                  letterCount++;
+                  return <Letter value={letter} key={`l${letterCount}`} id={letterCount} />
+                })}
+              </Word>
+              {index !== textArray.length - 1 &&
+                <Letter value={' '} key={`ls${letterCount+1}`} id={++letterCount} />
+              }
+            </>
+          })}
+        </div>
+      </main>
+    </>
   )
 }
