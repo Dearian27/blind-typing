@@ -2,6 +2,8 @@ import { AppDispatch, RootState } from '@/redux/store';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { initializeLetter, letterParams } from '@/redux/slices/TextSlice';
+import './letter.scss';
+
 
 type LetterComponent = {
   value: string;

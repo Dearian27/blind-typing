@@ -3,14 +3,13 @@ import Word from '@/components/Word';
 import Letter from '@/components/Letter';
 import {useDispatch, useSelector} from 'react-redux';
 import { useEffect, useState } from 'react';
-import './styles.scss';
 import styles from '@/app/page.module.css';
 import { AppDispatch } from '@/redux/store';
 import { backspacePress, initializeText, keyPress } from '@/redux/slices/TextSlice';
 
 const text = [
   // 'ffjj fffj jffj jjff jfjf fjjf',
-  'This is the men\'s world',
+  'This is the man\'s world',
 ]
 
 export default function Stage() {
@@ -36,19 +35,13 @@ export default function Stage() {
       default: dispatch(keyPress(event.key));break;
     }
   };
-  // useEffect(() => {
-  
-  // }, []);
 
   useEffect(() => {
+    dispatch(initializeText({text: text[0]})); // enter a text
     document.addEventListener('keydown', handleKeyPress);
     return () => {
       document.removeEventListener('keydown', handleKeyPress);
     };
-  }, []); // Порожній масив означає, що цей ефект запускається тільки при монтуванні та розмонтованні компонента
-
-  useEffect(() => {
-    dispatch(initializeText({text: text[0]}));
   }, []);
 
   return (
