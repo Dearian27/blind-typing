@@ -1,30 +1,38 @@
 .keyboard {
   display: flex;
   flex-direction: column;
-  row-gap: 7px;
+  row-gap: 5px;
   
   .row {
     display: flex;
-    gap: 3px;
+    gap: 4px;
   }
 }
 
 .key {
-  height: 50px;
-  width: 50px;
-  border-radius: 7px;
+  height: 35px;
+  width: 35px;
+  border-radius: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: grey;
-  color: white;
+  background-color: #22293b;
+  color: #ffe44e;
+  .text {
+    opacity: 0;
+    transition: 0.5s; 
+  }
+  .active {
+    opacity: 1 !important;
+  }
 }
+
 .backspace {
-  width: 140px !important;
+  width: 120px !important;
 }
 .tab {
-  width: 95px !important;
+  width: 77.5px !important;
 }
 .backslash {
-  width: 95px;
+  width: 77.5px !important;
 }

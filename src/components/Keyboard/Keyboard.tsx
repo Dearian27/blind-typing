@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import Key from './Key'
 import './keyboard.scss';
+import CapsLock from './CapsLock';
 
 export default function Keyboard() {
 
@@ -39,6 +40,24 @@ export default function Keyboard() {
         <Key value='[' alternative='{' />
         <Key value=']' alternative='}' />
         <Key specialClass='backslash' value='\' alternative='|' />
+      </div>
+      <div className='row'>
+        <CapsLock value='Capslock' />
+        <Key value='A' />
+        <Key value='S' />
+        <Key value='D' />
+        <Key value='F' />
+        <Key value='G' />
+        <Key value='H' />
+        <Key value='J' />
+        <Key value='K' />
+        <Key value='L' />
+        <Key value=';' alternative=':' />
+        <Key value="'" alternative='"' />
+        <Key specialClass="enter" value="Enter" />
+      </div>
+      <div className='row'>
+      
       </div>
       <div className='row'>
       

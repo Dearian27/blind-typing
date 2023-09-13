@@ -24,6 +24,7 @@ export default function Stage() {
 
 
   const handleKeyPress = (event:KeyboardEvent) => {
+    console.log(event.key)
     if (event.keyCode === 32) {
       event.preventDefault();
     } 

@@ -36,7 +36,6 @@ const TextSlice = createSlice({
 			for(let i = 0; i < action.payload.text.length; i++) {
 				array[i] = {
 					value: state.text[i],
-					// current: i === 0 ? true : false,
 					status: 'none',
 				}
 			}
@@ -64,15 +63,12 @@ const TextSlice = createSlice({
 			if(state.currentLetter === 0) return;
 			state.lettersStates[state.currentLetter].status = 'none';
 			state.lettersStates[state.currentLetter-1].status = 'none';
+			state.currentLetterValue = state.lettersStates[state.currentLetter-1].value;
 			state.currentLetter--;
 		},
 		setLetterPos: (state, action: PayloadAction<any>) => {
-			console.log(action.payload);
 			state.cursorPos = action.payload;
 		}
-		// buttonPress: (state, action: PayloadAction<>) => {
-		// 	state.
-		// },
 	}
 })
 

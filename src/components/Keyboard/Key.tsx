@@ -13,11 +13,13 @@ export default function Key(props: keyParams) {
 
   return (
     <div className={`key ${props.specialClass && props.specialClass}`}>
-      {props.value === currentLetterValue.toUpperCase() ?
-        props.value
-        : props?.alternative === currentLetterValue.toUpperCase() &&
-        props.alternative
-      }
+      <span className={`text ${props.value === currentLetterValue.toUpperCase() || props?.alternative === currentLetterValue.toUpperCase() ? 'active' : ''}`}>
+        {props.value === currentLetterValue.toUpperCase() ?      
+          props.value
+          : props?.alternative === currentLetterValue.toUpperCase() &&
+          props.alternative
+        }
+      </span>
     </div>
   )
 }
