@@ -57,10 +57,27 @@ export default function Keyboard() {
         <Key specialClass="enter" value="Enter" />
       </div>
       <div className='row'>
-      
+        <Key specialClass="shift" value='Shift' />
+        <Key value='Z' />
+        <Key value='X' />
+        <Key value='C' />
+        <Key value='V' />
+        <Key value='B' />
+        <Key value='N' />
+        <Key value='M' />
+        <Key value=',' alternative='<' />
+        <Key value='.' alternative='>' />
+        <Key value='/' alternative='?' />
+        <Key specialClass="shift" value="LShift" />
       </div>
       <div className='row'>
-      
+        <Key specialClass="ctrl" value='Control' />
+        <Key specialClass="win" value='Win' />
+        <Key specialClass="alt" value='Alt' />
+        <Key specialClass="space" value=' ' />
+        <Key specialClass="alt" value='Alt' />
+        <Key specialClass="win" value='Win' />
+        <Key specialClass="ctrl" value='Control' />
       </div>
     </section>
   )

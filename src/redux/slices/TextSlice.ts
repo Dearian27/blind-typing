@@ -72,6 +72,5 @@ const TextSlice = createSlice({
 	}
 })
 
-
 export const {initializeText, keyPress, backspacePress, setLetterPos} = TextSlice.actions;
 export default TextSlice.reducer;
