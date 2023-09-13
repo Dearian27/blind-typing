@@ -1,7 +1,7 @@
 import { AppDispatch, RootState } from '@/redux/store';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { initializeLetter, letterParams } from '@/redux/slices/TextSlice';
+import { letterParams, setLetterPos } from '@/redux/slices/TextSlice';
 import './letter.scss';
 
 
@@ -11,27 +11,29 @@ type LetterComponent = {
 }
 
 export default function Letter(props: LetterComponent) {
+  const letterRef = useRef<HTMLElement>(null);
+
   const [letter, setLetter] = useState<letterParams | null>(null);
   const dispatch = useDispatch<AppDispatch>();
   const {currentLetter} = useSelector((state: RootState) => state.text);
   const {lettersStates} = useSelector((state: RootState) => state.text);
-  const {cursor} = useSelector((state: RootState) => state.settings);
-  
-  // const letterStates = lettersStates[props.id];
-  // console.log("lettersState", letterStates)
-  
+
   useEffect(() => {
     setLetter(lettersStates[props.id]);
   }, [lettersStates[props.id]])
+  useEffect(() => {
+    if(currentLetter === props.id) {
+      const letterPosition = letterRef.current?.getBoundingClientRect(); // Отримати позицію літери
+      dispatch(setLetterPos({top: letterPosition?.top, left: letterPosition?.left, height: letterPosition?.height, width: letterPosition?.width}))
+    }
+  }, [currentLetter, letter]);
 
   return letter ?
     <code 
-    className={`letter ${letter.status === 'correct' ?  'correct' : letter.status === 'wrong' && props.value === " " ? 'bgwrong' : letter.status === 'wrong' && 'wrong'}`} id={String(props.id)}
+      ref={letterRef}
+      className={`letter ${letter.status === 'correct' ?  'correct' : letter.status === 'wrong' && props.value === " " ? 'bgwrong' : letter.status === 'wrong' ? 'wrong' : currentLetter === props.id && "current"}`} id={String(props.id)}
     >
       {props.value}
-      {currentLetter === props.id && cursor !== 'none' &&
-        <div className={`${cursor === 'default' ? 'cursor1' : 'cursor2'}`} />
-      }
     </code>
     : <></>
 }

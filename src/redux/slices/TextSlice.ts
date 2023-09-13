@@ -7,19 +7,23 @@ status: 'none' | 'correct' | 'wrong';
 }
 
 type textParams = {
-text: string;
-lettersStates: letterParams[];
-currentLetter: number;
-initialized: boolean;
-stopped: boolean;
+	text: string;
+	lettersStates: letterParams[];
+	currentLetter: number;
+	currentLetterValue: string;
+	initialized: boolean;
+	stopped: boolean;
+	cursorPos: any;
 }
 
 const initialState: textParams = {
-text: '',
-lettersStates: [],
-currentLetter: 0,
-initialized: false,
-stopped: false,
+	text: '',
+	lettersStates: [],
+	currentLetter: 0,
+	currentLetterValue: '',
+	initialized: false,
+	stopped: false,
+	cursorPos: null,
 }
 
 const TextSlice = createSlice({
@@ -36,16 +40,9 @@ const TextSlice = createSlice({
 					status: 'none',
 				}
 			}
-			console.log(array)
+			state.currentLetterValue = array[0].value;
 			state.lettersStates = array;
 			state.initialized = true;
-		},
-		initializeLetter: (state, action: PayloadAction<{id: number,value: string}>) => {
-			state.lettersStates[action.payload.id] = {
-				value: action.payload.value,
-				// current: false,
-				status: 'none'
-			};
 		},
 		keyPress: (state, action: PayloadAction<string>) => {
 			if(state.stopped) return;
@@ -57,8 +54,10 @@ const TextSlice = createSlice({
 			}
 			if(state.currentLetter === state.text.length-1) {
 				state.stopped = true;
-			} else 
-			state.currentLetter++;
+			} else {
+				state.currentLetterValue = state.lettersStates[state.currentLetter+1].value;
+				state.currentLetter++;
+			}
 		},
 		backspacePress: (state) => {
 			if(state.stopped) return;
@@ -66,6 +65,10 @@ const TextSlice = createSlice({
 			state.lettersStates[state.currentLetter].status = 'none';
 			state.lettersStates[state.currentLetter-1].status = 'none';
 			state.currentLetter--;
+		},
+		setLetterPos: (state, action: PayloadAction<any>) => {
+			console.log(action.payload);
+			state.cursorPos = action.payload;
 		}
 		// buttonPress: (state, action: PayloadAction<>) => {
 		// 	state.
@@ -74,5 +77,5 @@ const TextSlice = createSlice({
 })
 
 
-export const {initializeText, initializeLetter, keyPress, backspacePress} = TextSlice.actions;
+export const {initializeText, keyPress, backspacePress, setLetterPos} = TextSlice.actions;
 export default TextSlice.reducer;

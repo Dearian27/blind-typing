@@ -7,6 +7,8 @@ import styles from '@/app/page.module.css';
 import { AppDispatch } from '@/redux/store';
 import { backspacePress, initializeText, keyPress } from '@/redux/slices/TextSlice';
 import { setCursor } from '@/redux/slices/SettingsSlice';
+import Keyboard from '@/components/Keyboard/Keyboard';
+import Cursor from '@/components/Cursor';
 
 const text = [
   // 'ffjj fffj jffj jjff jfjf fjjf',
@@ -67,7 +69,10 @@ export default function Stage() {
               }
             </>
           })}
+          <Cursor />
         </div>
+
+        <Keyboard />
       </main>
     </>
   )

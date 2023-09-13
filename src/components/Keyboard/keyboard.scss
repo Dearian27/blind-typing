@@ -1,0 +1,30 @@
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  row-gap: 7px;
+  
+  .row {
+    display: flex;
+    gap: 3px;
+  }
+}
+
+.key {
+  height: 50px;
+  width: 50px;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: grey;
+  color: white;
+}
+.backspace {
+  width: 140px !important;
+}
+.tab {
+  width: 95px !important;
+}
+.backslash {
+  width: 95px;
+}

@@ -1,8 +1,10 @@
 .letter {
-	position: relative;
 	white-space: pre-wrap;
 	font-size: 20px;
 	color: #868686;
+	&.current {
+		position: relative;
+	}
 	&.bgwrong {
 		background-color: #ff60904e !important;
 	}
@@ -15,26 +17,29 @@
 		text-shadow: 0 0 5px #ff1495, 0 0 10px #ff1495, 0 0 20px #ff1495;
 	}
 }
-.cursor1 {
+
+.cursor {
 	position: absolute;
 	background-color: #ffffd7;
+	transition: 0.3s;
+}
+
+.cursor1 {
 	opacity: 0.7;
-	height: 80%;
-	width: 2px;
-	right: 0px;
-	top: 10%;
+	// height: 80%;
+	// width: 2px;
+	// right: 0px;
+	// top: 10%;
 	animation: blink infinite 1s ease-in-out;
 	border-radius: 5px;
 }
 
 .cursor2 {
-	position: absolute;
-	background-color: #ffffd7;
 	opacity: 0.5;
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
+	// height: 100%;
+	// width: 100%;
+	// top: 0;
+	// left: 0;
 	animation: blink infinite 1s ease-in-out;
 	border-radius: 1px;
 }
