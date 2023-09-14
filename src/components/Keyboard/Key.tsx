@@ -7,6 +7,7 @@ export type keyParams = {
   alternative?: string;
   specialClass?: string;
   viewedValue?: string;
+  textClass?: string;
 }
 
 export default function Key(props: keyParams) {
@@ -14,7 +15,7 @@ export default function Key(props: keyParams) {
 
   return (
     <div className={`key ${props.specialClass && props.specialClass} ${props.value === currentLetterValue.toUpperCase() || props?.alternative === currentLetterValue.toUpperCase() ? 'active' : ''}`}>
-      <span className={`text ${props.value === currentLetterValue.toUpperCase() || props?.alternative === currentLetterValue.toUpperCase() ? 'active' : ''}`}>
+      <span className={`text ${props.value === currentLetterValue.toUpperCase() || props?.alternative === currentLetterValue.toUpperCase() ? 'active' : ''} ${props.textClass && props.textClass}`}>
         {props?.alternative === currentLetterValue.toUpperCase() ?
           props.alternative
           :

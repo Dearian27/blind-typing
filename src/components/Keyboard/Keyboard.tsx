@@ -23,10 +23,10 @@ export default function Keyboard() {
         <Key value='0' />
         <Key value='-' />
         <Key value='=' />
-        <Key specialClass="backspace" value={'Backspace'} />
+        <Key specialClass="backspace" value={'Backspace'} textClass="smallFont" />
       </div>
       <div className='row'>
-        <Key specialClass="tab" value={'Tab'} />
+        <Key specialClass="tab" value={'Tab'} textClass="smallFont" />
         <Key value='Q' />
         <Key value='W' />
         <Key value='E' />
@@ -39,10 +39,10 @@ export default function Keyboard() {
         <Key value='P' />
         <Key value='[' alternative='{' />
         <Key value=']' alternative='}' />
-        <Key specialClass='backslash' value='\' alternative='|' />
+        <Key specialClass='backslash' value='\' alternative='|'  textClass="smallFont" />
       </div>
       <div className='row'>
-        <CapsLock value='Capslock' />
+        <CapsLock value='Capslock' textClass="smallFont" />
         <Key value='A' />
         <Key value='S' />
         <Key value='D' />
@@ -54,10 +54,10 @@ export default function Keyboard() {
         <Key value='L' />
         <Key value=';' alternative=':' />
         <Key value="'" alternative='"' />
-        <Key specialClass="enter" value="Enter" />
+        <Key specialClass="enter" value="Enter" textClass="smallFont" />
       </div>
       <div className='row'>
-        <Key specialClass="shift" value='Shift' />
+        <Key specialClass="shift" value='Shift' textClass="smallFont" />
         <Key value='Z' />
         <Key value='X' />
         <Key value='C' />
@@ -68,16 +68,16 @@ export default function Keyboard() {
         <Key value=',' alternative='<' />
         <Key value='.' alternative='>' />
         <Key value='/' alternative='?' />
-        <Key specialClass="shift" value="LShift" viewedValue='Shift' />
+        <Key specialClass="shift" value="LShift" viewedValue='Shift'textClass="smallFont" />
       </div>
       <div className='row'>
-        <Key specialClass="ctrl" value='Control' viewedValue='Ctrl' />
-        <Key specialClass="win" value='Win' />
-        <Key specialClass="alt" value='Alt' />
+        <Key specialClass="ctrl" value='Control' viewedValue='Ctrl' textClass="smallFont" />
+        <Key specialClass="win" value='Win' textClass="smallFont" />
+        <Key specialClass="alt" value='Alt' textClass="smallFont" />
         <Key specialClass="space" value=' '  viewedValue='___' />
-        <Key specialClass="alt" value='Alt' />
-        <Key specialClass="win" value='Win' />
-        <Key specialClass="ctrl" value='Control' viewedValue='Ctrl' />
+        <Key specialClass="alt" value='Alt' textClass="smallFont" />
+        <Key specialClass="win" value='Win' textClass="smallFont" />
+        <Key specialClass="ctrl" value='Control' viewedValue='Ctrl' textClass="smallFont" />
       </div>
     </section>
   )

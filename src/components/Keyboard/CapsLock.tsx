@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 export type keyParams = {
   value: string;
   specialClass?: string;
+  textClass?: string;
 }
 
 export default function CapsLock(props: keyParams) {
@@ -12,9 +13,9 @@ export default function CapsLock(props: keyParams) {
 
   return (
     <div className={`key capslock`}>
-      <span className='text'>
+      <span className={`text ${props.textClass && props.textClass}`}>
       {/* {props.value === currentLetterValue.toUpperCase() && */}
-        caps lock
+        Caps lock
       {/* } */}
       </span>
     </div>

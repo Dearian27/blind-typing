@@ -22,7 +22,7 @@
   border: 2px solid #ffffff00;
   transition: border-color 0.5s; 
   .text {
-    color: #2e374c;
+    color: #3b455d;
     transition: 0.5s;
   }
   .active {
@@ -61,4 +61,7 @@
 }
 .space {
   width: 280px;
+}
+.smallFont {
+  font-size: 12px;
 }
