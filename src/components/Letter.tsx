@@ -24,7 +24,7 @@ export default function Letter(props: LetterComponent) {
   useEffect(() => {
     if(currentLetter === props.id) {
       const letterPosition = letterRef.current?.getBoundingClientRect(); // Отримати позицію літери
-      dispatch(setLetterPos({top: letterPosition?.top, left: letterPosition?.left, height: letterPosition?.height, width: letterPosition?.width}))
+      if(letterPosition) dispatch(setLetterPos({top: letterPosition?.top, left: letterPosition?.left, height: letterPosition?.height, width: letterPosition?.width}))
     }
   }, [currentLetter, letter]);
 

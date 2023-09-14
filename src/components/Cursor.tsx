@@ -10,9 +10,9 @@ export default function Cursor() {
     <>
       {cursor !== 'none' && cursorPos &&
           <div 
-            style={cursorPos && {
-              top: cursorPos.top - 6,
-              left: cursorPos.left + 2.5,
+            style={{
+              top: cursorPos?.top - 6,
+              left: cursorPos?.left + 2.5,
               position: 'absolute',
               transform: 'translate(-100%, -100%)', 
               height: cursorPos.height, 

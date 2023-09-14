@@ -1,4 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { setWrongLetter } from "./StatsSlice";
 
 export type letterParams = {
 value: string;
@@ -49,6 +50,7 @@ const TextSlice = createSlice({
 			if(action.payload === state.lettersStates[state.currentLetter].value) {
 				state.lettersStates[state.currentLetter].status = 'correct';
 			} else {
+				setWrongLetter(state.currentLetter);
 				state.lettersStates[state.currentLetter].status = 'wrong';
 			}
 			if(state.currentLetter === state.text.length-1) {
