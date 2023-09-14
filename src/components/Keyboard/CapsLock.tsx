@@ -12,9 +12,11 @@ export default function CapsLock(props: keyParams) {
 
   return (
     <div className={`key capslock`}>
-      {props.value === currentLetterValue.toUpperCase() &&
-        props.value
-      }
+      <span className='text'>
+      {/* {props.value === currentLetterValue.toUpperCase() && */}
+        caps lock
+      {/* } */}
+      </span>
     </div>
   )
 }

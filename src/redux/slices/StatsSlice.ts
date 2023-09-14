@@ -13,6 +13,8 @@ const StatsSlice = createSlice({
   initialState,
   reducers: {
     setWrongLetter: (state, action) => {
+      console.log('fds')
+      console.log(action.payload)
       state.wrongLetters[action.payload]++;
     }
   }

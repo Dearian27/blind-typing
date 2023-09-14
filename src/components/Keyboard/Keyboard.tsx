@@ -68,16 +68,16 @@ export default function Keyboard() {
         <Key value=',' alternative='<' />
         <Key value='.' alternative='>' />
         <Key value='/' alternative='?' />
-        <Key specialClass="shift" value="LShift" />
+        <Key specialClass="shift" value="LShift" viewedValue='Shift' />
       </div>
       <div className='row'>
-        <Key specialClass="ctrl" value='Control' />
+        <Key specialClass="ctrl" value='Control' viewedValue='Ctrl' />
         <Key specialClass="win" value='Win' />
         <Key specialClass="alt" value='Alt' />
-        <Key specialClass="space" value=' ' />
+        <Key specialClass="space" value=' '  viewedValue='___' />
         <Key specialClass="alt" value='Alt' />
         <Key specialClass="win" value='Win' />
-        <Key specialClass="ctrl" value='Control' />
+        <Key specialClass="ctrl" value='Control' viewedValue='Ctrl' />
       </div>
     </section>
   )

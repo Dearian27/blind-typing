@@ -1,4 +1,5 @@
 .keyboard {
+  margin-top: 200px;
   display: flex;
   flex-direction: column;
   row-gap: 5px;
@@ -10,6 +11,7 @@
 }
 
 .key {
+  box-sizing: border-box;
   height: 35px;
   width: 35px;
   border-radius: 4px;
@@ -17,14 +19,20 @@
   justify-content: center;
   align-items: center;
   background-color: #22293b;
-  color: #ffe44e;
+  border: 2px solid #ffffff00;
+  transition: border-color 0.5s; 
   .text {
-    opacity: 0;
-    transition: 0.5s; 
+    color: #2e374c;
+    transition: 0.5s;
   }
   .active {
-    opacity: 1 !important;
+    // color: #ffe44e;
+    color: #33ffcf;
   }
+}
+.active {
+  // border-color: #ffe44e;
+  border-color: #33ffcf;
 }
 
 .backspace {
