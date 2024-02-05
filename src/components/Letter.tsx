@@ -23,7 +23,14 @@ export default function Letter(props: LetterComponent) {
   }, [lettersStates[props.id]])
   useEffect(() => {
     if(currentLetter === props.id) {
-      const letterPosition = letterRef.current?.getBoundingClientRect(); // Отримати позицію літери
+      const letterPosition = {
+        top: letterRef.current?.offsetTop,
+        left: letterRef.current?.offsetLeft,
+        height: letterRef.current?.offsetHeight,
+        width: letterRef.current?.offsetWidth,
+      } 
+      // letterRef.current?.getBoundingClientRect(); // Отримати позицію літери
+      console.log(letterPosition);
       if(letterPosition) dispatch(setLetterPos({top: letterPosition?.top, left: letterPosition?.left, height: letterPosition?.height, width: letterPosition?.width}))
     }
   }, [currentLetter, letter]);

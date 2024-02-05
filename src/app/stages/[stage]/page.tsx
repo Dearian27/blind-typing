@@ -12,7 +12,8 @@ import Cursor from '@/components/Cursor';
 
 const text = [
   // 'ffjj fffj jffj jjff jfjf fjjf',
-  'This is the man\'s world',
+  // 'This is the man\'s world',
+  'Learn programming with Click-IT',
 ]
 
 export default function Stage() {

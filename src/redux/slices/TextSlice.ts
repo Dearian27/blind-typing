@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { setWrongLetter } from "./StatsSlice";
+import { RootState } from "../store";
 
 export type letterParams = {
 value: string;
@@ -31,7 +32,7 @@ const TextSlice = createSlice({
 	name: "text",
 	initialState,
 	reducers: {
-		initializeText: (state, action: PayloadAction<{text: string;}>) => {
+		initializeText: (state: RootState, action: PayloadAction<{text: string;}>) => {
 			state.text = action.payload.text;
 			const array:letterParams[] = [];
 			for(let i = 0; i < action.payload.text.length; i++) {

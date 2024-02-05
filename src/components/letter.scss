@@ -1,6 +1,6 @@
 .letter {
 	white-space: pre-wrap;
-	font-size: 20px;
+	font-size: 40px;
 	color: #868686;
 	&.current {
 		position: relative;
@@ -11,6 +11,8 @@
 	&.correct {
 		color: white !important;
 		text-shadow: 0 0 5px #33ffcfc6, 0 0 10px #33ffcfb1, 0 0 20px #33ffcf9d;
+		// text-shadow: 0 0 5px #ffb727c6, 0 0 10px #ffb727c6, 0 0 20px #ffb727c6;
+		// text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff;
 	}
 	&.wrong {
 		color: #ff1495 !important;
@@ -28,14 +30,14 @@
 	opacity: 0.7;
 	animation: blink infinite 1s ease-in-out;
 	border-radius: 5px;
-	margin-left: -8px;
+	// margin-left: -8px;
 }
 
 .cursor2 {
 	opacity: 0.5;
 	animation: blink infinite 1s ease-in-out;
 	border-radius: 1px;
-	margin-left: 0.4px;
+	// margin-left: 0.4px;
 }
 
 @keyframes blink {

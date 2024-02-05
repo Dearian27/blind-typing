@@ -1,5 +1,5 @@
 import { RootState } from '@/redux/store'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useSelector } from 'react-redux'
 
 export default function Cursor() {
@@ -11,11 +11,10 @@ export default function Cursor() {
       {cursor !== 'none' && cursorPos &&
           <div 
             style={{
-              top: cursorPos?.top - 6,
-              left: cursorPos?.left + 2.5,
+              top: cursorPos?.top + cursorPos.height*0.05,
+              left: cursorPos?.left,
               position: 'absolute',
-              transform: 'translate(-100%, -100%)', 
-              height: cursorPos.height, 
+              height: cursorPos.height * 0.9, 
               width: cursor === 'default' ? '2px' : cursorPos.width,
             }}
             className={`cursor ${cursor === 'default' ? 'cursor1' : 'cursor2'}`} 
