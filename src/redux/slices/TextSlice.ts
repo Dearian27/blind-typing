@@ -28,7 +28,7 @@ const initialState: textParams = {
 	cursorPos: null,
 }
 
-const TextSlice:Slice = createSlice({
+const TextSlice = createSlice({
 	name: "text",
 	initialState,
 	reducers: {
