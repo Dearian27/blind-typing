@@ -9,6 +9,7 @@ import { backspacePress, initializeText, keyPress } from '@/redux/slices/TextSli
 import { setCursor } from '@/redux/slices/SettingsSlice';
 import Keyboard from '@/components/Keyboard/Keyboard';
 import Cursor from '@/components/Cursor';
+import Timer from '@/components/Timer';
 
 const text = [
   // 'ffjj fffj jffj jjff jfjf fjjf',
@@ -54,6 +55,7 @@ export default function Stage() {
       <button onClick={() => dispatch(setCursor('none'))}>None</button>
       <button onClick={() => dispatch(setCursor('default'))}>Default</button>
       <button onClick={() => dispatch(setCursor('terminal'))}>Terminal</button>
+      <Timer />
       
       <main className={styles.main}>
         <div style={{display: 'flex', flexWrap: 'wrap'}}>

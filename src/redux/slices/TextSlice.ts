@@ -4,7 +4,6 @@ import { RootState } from "../store";
 
 export type letterParams = {
 value: string;
-// current: boolean;
 status: 'none' | 'correct' | 'wrong';
 }
 
@@ -16,6 +15,7 @@ type textParams = {
 	initialized: boolean;
 	stopped: boolean;
 	cursorPos: any;
+	startStopwatch: boolean;
 }
 
 const initialState: textParams = {
@@ -26,6 +26,7 @@ const initialState: textParams = {
 	initialized: false,
 	stopped: false,
 	cursorPos: null,
+	startStopwatch: false,
 }
 
 const TextSlice = createSlice({
@@ -47,6 +48,7 @@ const TextSlice = createSlice({
 		},
 		keyPress: (state, action: PayloadAction<string>) => {
 			if(state.stopped) return;
+			else if(!state.startStopwatch) state.startStopwatch = true;
 
 			if(action.payload === state.lettersStates[state.currentLetter].value) {
 				state.lettersStates[state.currentLetter].status = 'correct';
