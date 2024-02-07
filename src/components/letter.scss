@@ -6,7 +6,7 @@
 		position: relative;
 	}
 	&.bgwrong {
-		// background-color: #ff60904e !important;
+		background-color: #ff60904e !important;
 	}
 	&.correct {
 		color: white !important;
@@ -15,11 +15,9 @@
 		// text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff;
 	}
 	&.wrong {
-		// color: #ff1495 !important;
-		// text-shadow: 0 0 5px #ff1495, 0 0 10px #ff1495, 0 0 20px #ff1495;
+		color: #ff1495 !important;
+		text-shadow: 0 0 5px #ff1495, 0 0 10px #ff1495, 0 0 20px #ff1495;
 		
-		color: white !important;
-		text-shadow: 0 0 5px #33ffcfc6, 0 0 10px #33ffcfb1, 0 0 20px #33ffcf9d;
 	}
 }
 
